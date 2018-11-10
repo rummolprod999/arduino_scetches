@@ -20,6 +20,7 @@ void setup()
   lcd.print("Arduino LCM IIC 2004");
    lcd.setCursor(2,3);
   lcd.print("Power By Ec-yuan!");
+  
 }
 
 
