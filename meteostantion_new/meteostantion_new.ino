@@ -15,27 +15,24 @@ void setup() // процедура setup
   lcd.clear();
   lcd.setCursor(0, 0); // ставим курсор на 1 символ первой строки
   lcd.print("I LOVE"); // печатаем сообщение на первой строке
-
   lcd.setCursor(0, 1); // ставим курсор на 1 символ второй строки
   lcd.print("ARDUINO"); // печатаем сообщение на второй строке
+  lcd.noBacklight();
 
 }
 
 void loop() // процедура loop
 {
   delay(1000);
-  // считываем температуру (t) и влажность (h) каждые 250 мс
   float h = dht.readHumidity();
   float t = dht.readTemperature();
-
-  // выводим температуру (t) и влажность (h) на монитор порта
-
   Serial.print("Humidity: ");
   Serial.print(h);
   Serial.print(" %\t");
   Serial.print("Temperature: ");
   Serial.print(t);
   Serial.println(" *C");
+  lcd.backlight();
   lcd.home();
   lcd.clear();
   lcd.setCursor(0, 0); // ставим курсор на 1 символ второй строки
@@ -45,6 +42,6 @@ void loop() // процедура loop
   lcd.print("Temp: ");
   lcd.print(t);
   delay(3000);
-  lcd.clear();
+  lcd.noBacklight();
 
 }
